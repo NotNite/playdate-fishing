@@ -1,0 +1,12 @@
+﻿{
+  "Author": "NotNite",
+  "Name": "Playdate Fishing",
+  "Punchline": "FFXIV fishing controlled by a Playdate",
+  "Description": "See the repository README for more information.",
+  "InternalName": "PlaydateFishing",
+  "RepoUrl": "https://github.com/NotNite/playdate-fishing",
+  "Tags": [
+    "fishing",
+    "playdate"
+  ]
+}

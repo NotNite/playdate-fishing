@@ -1,0 +1,6 @@
+name=Playdate Fishing
+author=NotNite
+description=FFXIV fishing controlled by a Playdate
+bundleID=com.notnite.playdatefishing
+version=1.0
+imagePath=system_assets
