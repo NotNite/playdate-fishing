@@ -17,12 +17,14 @@ Note the *bytecode* in that sentence. We can evaluate custom Lua on the fly, but
 
 ## Installation
 
-This guide assumes you are a developer that probably is in the Playdate developer ecosystem but is probably not in the FFXIV developer ecosystem. You will have to build this from source - I'm not providing binaries for a project this dumb.
+This guide assumes you are a developer that is probably in the Playdate developer ecosystem but is probably not in the FFXIV developer ecosystem. You will have to build this from source - I'm not providing binaries for a project this dumb.
+
+Requirements:
 
 - A [Playdate](https://play.date/) and [XIVLauncher](https://goatcorp.github.io/)
 - The [Playdate SDK](https://play.date/dev/) and [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download)
 
-First, build the and install the Playdate game (making sure you have the Playdate SDK in your path, and your Playdate is connected via USB and is unlocked):
+First, build and install the Playdate game (making sure you have the Playdate SDK in your path, and your Playdate is connected via USB and is unlocked):
 
 ```shell
 pdc ./playdate ./com.notnite.playdatefishing.pdx
