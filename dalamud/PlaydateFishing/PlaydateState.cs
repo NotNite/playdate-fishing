@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Dalamud.Logging;
+using FFXIVClientStructs.FFXIV.Client.Game;
 
 namespace PlaydateFishing;
 
@@ -33,7 +34,7 @@ public class PlaydateState {
             case "crankDock": {
                 this.CrankDocked = content == "true";
                 if (Plugin.Configuration.AutomaticCastQuit && this.Initialized) {
-                    GameFunctions.UseAction(this.CrankDocked ? GameFunctions.Quit : GameFunctions.Cast);
+                    GameFunctions.UseAction(this.CrankDocked ? Constants.Quit : Constants.Cast);
                 }
                 break;
             }
@@ -43,6 +44,12 @@ public class PlaydateState {
                 var change = float.Parse(parts[0]);
                 var accelChange = float.Parse(parts[1]);
                 this.HandleCrank(change, accelChange);
+                break;
+            }
+
+            case "option": {
+                var option = (Option) int.Parse(content);
+                this.HandleOption(option);
                 break;
             }
 
@@ -79,6 +86,60 @@ public class PlaydateState {
                         GameFunctions.UseHook(isPowerful);
                     }
                 });
+            }
+        }
+    }
+
+    private void HandleOption(Option option) {
+        switch (option) {
+            case Option.Cast: {
+                GameFunctions.UseAction(Constants.Cast);
+                break;
+            }
+
+            case Option.Patience: {
+                GameFunctions.UseAction(Constants.Patience);
+                break;
+            }
+
+            case Option.PatienceII: {
+                GameFunctions.UseAction(Constants.PatienceII);
+                break;
+            }
+
+            case Option.PrizeCatch: {
+                GameFunctions.UseAction(Constants.PrizeCatch);
+                break;
+            }
+
+            case Option.IdenticalCast: {
+                GameFunctions.UseAction(Constants.IdentitalCast);
+                break;
+            }
+
+            case Option.SurfaceSlap: {
+                GameFunctions.UseAction(Constants.SurfaceSlap);
+                break;
+            }
+
+            case Option.ThaliaksFavor: {
+                GameFunctions.UseAction(Constants.ThaliaksFavor);
+                break;
+            }
+
+            case Option.HiCordial: {
+                GameFunctions.UseAction(Constants.HiCordial, ActionType.Item);
+                break;
+            }
+
+            case Option.Mooch: {
+                GameFunctions.UseAction(Constants.Mooch);
+                break;
+            }
+
+            case Option.MoochII: {
+                GameFunctions.UseAction(Constants.MoochII);
+                break;
             }
         }
     }
