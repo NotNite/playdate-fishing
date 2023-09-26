@@ -17,6 +17,8 @@ public class Constants {
     public const uint HiCordial = 12669;
     public const uint Mooch = 297;
     public const uint MoochII = 268;
+    public const uint DoubleHook = 269;
+    public const uint TripleHook = 27523;
 
     public const uint InefficientHooking = 764;
 }

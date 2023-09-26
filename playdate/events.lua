@@ -12,12 +12,12 @@ function playdate.crankUndocked()
 	log("crankDock", false)
 end
 
-function playdate.upButtonDown()
-	fishing.ui.up()
+function playdate.leftButtonDown()
+	fishing.ui.left()
 end
 
-function playdate.downButtonDown()
-	fishing.ui.down()
+function playdate.rightButtonDown()
+	fishing.ui.right()
 end
 
 function playdate.AButtonDown()

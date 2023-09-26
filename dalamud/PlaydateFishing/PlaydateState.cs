@@ -141,6 +141,16 @@ public class PlaydateState {
                 GameFunctions.UseAction(Constants.MoochII);
                 break;
             }
+
+            case Option.DoubleHook: {
+                GameFunctions.UseAction(Constants.DoubleHook);
+                break;
+            }
+
+            case Option.TripleHook: {
+                GameFunctions.UseAction(Constants.TripleHook);
+                break;
+            }
         }
     }
 }

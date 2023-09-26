@@ -1,4 +1,7 @@
 import("CoreLibs/graphics")
+import("CoreLibs/sprites")
+import("CoreLibs/animator")
+import("CoreLibs/easing")
 
 fishing = {}
 

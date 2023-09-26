@@ -10,5 +10,7 @@ public enum Option {
     ThaliaksFavor,
     HiCordial,
     Mooch,
-    MoochII
+    MoochII,
+    DoubleHook,
+    TripleHook
 }
