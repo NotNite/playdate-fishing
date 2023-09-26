@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dalamud.Logging;
@@ -17,6 +18,7 @@ public class PlaydateState {
     public bool InHookSpeed;
 
     private Queue<float> lastCranks = new();
+    private Option? hoveredOption;
 
     public void HandleMessage(string type, string content) {
         switch (type) {
@@ -53,6 +55,12 @@ public class PlaydateState {
                 break;
             }
 
+            case "hover": {
+                var option = (Option) int.Parse(content);
+                this.hoveredOption = option;
+                break;
+            }
+
             default: {
                 PluginLog.Warning("Unknown message type {Type}: {Content}", type, content);
                 break;
@@ -83,7 +91,7 @@ public class PlaydateState {
                         var current = this.lastCranks.Average();
                         var isPowerful = current >= PowerfulHooksetSpeed;
                         PluginLog.Debug($"Call Hook, speed: {current}, powerful: {isPowerful}");
-                        GameFunctions.UseHook(isPowerful);
+                        GameFunctions.UseHook(isPowerful, this.hoveredOption);
                     }
                 });
             }
@@ -94,6 +102,16 @@ public class PlaydateState {
         switch (option) {
             case Option.Cast: {
                 GameFunctions.UseAction(Constants.Cast);
+                break;
+            }
+
+            case Option.Hook: {
+                GameFunctions.UseAction(Constants.Hook);
+                break;
+            }
+
+            case Option.Quit: {
+                GameFunctions.UseAction(Constants.Quit);
                 break;
             }
 
@@ -151,6 +169,9 @@ public class PlaydateState {
                 GameFunctions.UseAction(Constants.TripleHook);
                 break;
             }
+
+            default:
+                throw new ArgumentOutOfRangeException(nameof(option), option, null);
         }
     }
 }

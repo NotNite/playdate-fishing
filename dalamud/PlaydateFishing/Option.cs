@@ -2,15 +2,17 @@
 
 public enum Option {
     Cast = 1,
+    Hook,
+    Quit,
+    DoubleHook,
+    TripleHook,
+    ThaliaksFavor,
+    HiCordial,
     Patience,
     PatienceII,
     PrizeCatch,
     IdenticalCast,
     SurfaceSlap,
-    ThaliaksFavor,
-    HiCordial,
     Mooch,
-    MoochII,
-    DoubleHook,
-    TripleHook
+    MoochII
 }

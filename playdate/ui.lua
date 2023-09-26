@@ -6,17 +6,19 @@ gfx.setBackgroundColor(gfx.kColorWhite)
 
 local options = {
   "Cast",
+  "Hook",
+  "Quit",
+  "Double Hook",
+  "Triple Hook",
+  "Thaliak's Favor",
+  "Hi-Cordial",
   "Patience",
   "Patience II",
   "Prize Catch",
   "Identical Cast",
   "Surface Slap",
-  "Thaliak's Favor",
-  "Hi-Cordial",
   "Mooch",
   "Mooch II",
-  "Double Hook",
-  "Triple Hook",
 }
 local option = 1
 
@@ -100,6 +102,7 @@ function fishing.ui.left()
     return
   end
 
+  log("hover", option)
   shift(sprite_move)
 end
 
@@ -111,6 +114,7 @@ function fishing.ui.right()
     return
   end
 
+  log("hover", option)
   shift(-sprite_move)
 end
 

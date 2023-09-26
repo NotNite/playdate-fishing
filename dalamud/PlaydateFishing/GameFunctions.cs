@@ -10,16 +10,25 @@ public static unsafe class GameFunctions {
         ActionManager.Instance()->UseAction(type, id);
     }
 
-    public static void UseHook(bool powerful) {
+    public static void UseHook(bool powerful, Option? hoveredOption) {
         if (Plugin.ClientState.LocalPlayer == null) return;
+        var action = Constants.Hook;
 
         var isPatience = Plugin.ClientState.LocalPlayer.StatusList
             .Any(x => x.StatusId == Constants.InefficientHooking);
 
         if (isPatience) {
-            UseAction(powerful ? Constants.PowerfulHookset : Constants.PrecisionHookset);
-        } else {
-            UseAction(Constants.Hook);
+            action = powerful ? Constants.PowerfulHookset : Constants.PrecisionHookset;
         }
+
+        if (Plugin.Configuration.HoverToUse) {
+            action = hoveredOption switch {
+                Option.DoubleHook => Constants.DoubleHook,
+                Option.TripleHook => Constants.TripleHook,
+                _ => action
+            };
+        }
+
+        UseAction(action);
     }
 }

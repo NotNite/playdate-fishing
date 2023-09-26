@@ -8,6 +8,7 @@ namespace PlaydateFishing;
 public class Configuration : IPluginConfiguration {
     public int Version { get; set; } = 0;
 
-    [JsonProperty] public bool AutomaticCastQuit = true;
     [JsonProperty] public string SerialLine = "COM5";
+    [JsonProperty] public bool AutomaticCastQuit = true;
+    [JsonProperty] public bool HoverToUse = true;
 }
